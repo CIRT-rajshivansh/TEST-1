@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#08111f">
+  <meta name="description" content="Shivansh Raj — cybersecurity portfolio focused on SOC operations, incident response, threat investigation, and digital forensics.">
+  <title>Shivansh Raj | Cybersecurity Portfolio</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: light-dark(#f5f8fc, #07111f);
+      --surface: light-dark(#ffffff, #0d1a2b);
+      --surface-2: light-dark(#edf3fa, #112238);
+      --text: light-dark(#142238, #edf5ff);
+      --muted: light-dark(#5d6c80, #a0b2c9);
+      --line: light-dark(#dce5f0, #243750);
+      --accent: #55e6d0;
+      --accent-2: #6ea8ff;
+      --shadow: 0 20px 60px rgba(0, 0, 0, .18);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.65; }
+    a { color: inherit; text-decoration: none; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .app { min-height: 100vh; background-color: var(--bg); overflow: hidden; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    .nav { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+    .brand { display: flex; align-items: center; gap: 11px; font-weight: 800; letter-spacing: -.03em; }
+    .brand-mark { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 12px; color: #06121f; background: linear-gradient(135deg, var(--accent), var(--accent-2)); font-size: 15px; }
+    .nav-links { display: flex; gap: 24px; align-items: center; color: var(--muted); font-size: 13px; font-weight: 650; }
+    .nav-links a:hover, .text-link:hover { color: var(--accent); }
+    .hero { display: grid; grid-template-columns: 1.3fr .7fr; align-items: center; gap: 56px; padding: 84px 0 76px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--accent); text-transform: uppercase; letter-spacing: .16em; font-size: 11px; font-weight: 800; }
+    .pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 5px rgba(85,230,208,.12); }
+    h1 { font-size: clamp(42px, 6vw, 72px); letter-spacing: -.065em; line-height: 1.04; margin: 20px 0 22px; }
+    .gradient { background: linear-gradient(100deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hero-copy { max-width: 650px; color: var(--muted); font-size: 17px; }
+    .hero-copy strong { color: var(--text); }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .btn { border: 1px solid var(--line); border-radius: 12px; padding: 12px 17px; font-size: 13px; font-weight: 750; display: inline-flex; align-items: center; justify-content: center; gap: 9px; transition: transform .2s, border-color .2s; }
+    .btn:hover { transform: translateY(-2px); border-color: var(--accent); }
+    .btn-primary { color: #06121f; background: linear-gradient(100deg, var(--accent), #9af3e7); border-color: transparent; }
+    .hero-card { position: relative; padding: 27px; border: 1px solid var(--line); border-radius: 24px; background: linear-gradient(145deg, var(--surface), var(--surface-2)); box-shadow: var(--shadow); }
+    .hero-card:before { content: ""; position: absolute; width: 130px; height: 130px; right: -25px; top: -30px; background: var(--accent); opacity: .09; filter: blur(38px); border-radius: 50%; pointer-events: none; }
+    .terminal-top { display: flex; gap: 6px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: #f17d82; }
+    .dot:nth-child(2) { background: #f4c96b; }
+    .dot:nth-child(3) { background: var(--accent); }
+    .terminal-label { margin-left: auto; color: var(--muted); font: 11px ui-monospace, monospace; }
+    .code-line { font: 13px/2 ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--muted); }
+    .code-line b { color: var(--accent); font-weight: 500; }
+    .code-line span { color: var(--accent-2); }
+    .status { margin-top: 18px; padding: 13px; border: 1px solid rgba(85,230,208,.25); background: rgba(85,230,208,.06); border-radius: 12px; font-size: 12px; }
+    .status strong { display: block; color: var(--accent); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 3px; }
+    section { padding: 40px 0 54px; scroll-margin-top: 24px; }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 25px; }
+    .section-kicker { color: var(--accent-2); font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .16em; }
+    h2 { margin: 6px 0 0; font-size: clamp(27px, 4vw, 38px); letter-spacing: -.045em; line-height: 1.2; }
+    .section-intro { color: var(--muted); max-width: 520px; font-size: 14px; margin: 0; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+    .card { border: 1px solid var(--line); background: var(--surface); border-radius: 18px; padding: 22px; transition: transform .2s, border-color .2s; }
+    .card:hover { transform: translateY(-3px); border-color: rgba(85,230,208,.55); }
+    .card-icon { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: var(--surface-2); color: var(--accent); font-size: 18px; margin-bottom: 16px; }
+    h3 { margin: 0 0 9px; font-size: 16px; letter-spacing: -.02em; }
+    .card p { color: var(--muted); font-size: 13px; margin: 0; }
+    .timeline { border-left: 1px solid var(--line); margin-left: 9px; padding-left: 25px; }
+    .timeline-item { position: relative; padding: 0 0 25px; }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-item:before { content: ""; position: absolute; left: -31px; top: 7px; width: 11px; height: 11px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 5px var(--bg); }
+    .timeline-meta { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 6px; }
+    .tag { display: inline-flex; padding: 4px 9px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); font-size: 10px; font-weight: 750; letter-spacing: .04em; }
+    .tag.current { color: var(--accent); border-color: rgba(85,230,208,.35); background: rgba(85,230,208,.07); }
+    .timeline h3 { margin-bottom: 3px; }
+    .timeline p { margin: 0; color: var(--muted); font-size: 13px; max-width: 780px; }
+    .skill-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: 16px; }
+    .skill-panel { border: 1px solid var(--line); border-radius: 18px; padding: 23px; background: var(--surface); }
+    .skill-panel h3 { margin-bottom: 15px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip { padding: 7px 10px; border-radius: 9px; background: var(--surface-2); border: 1px solid var(--line); color: var(--muted); font-size: 11px; font-weight: 650; }
+    .project { display: flex; flex-direction: column; min-height: 235px; }
+    .project-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+    .project-symbol { color: var(--accent); font: 20px ui-monospace, monospace; }
+    .project .chips { margin-top: auto; padding-top: 20px; }
+    .note { margin-top: 16px; color: var(--muted); font-size: 12px; }
+    .contact { padding: 32px; border: 1px solid var(--line); border-radius: 24px; background: radial-gradient(ellipse at top right, rgba(85,230,208,.1), transparent 45%), var(--surface); display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .contact p { margin: 10px 0 0; color: var(--muted); max-width: 620px; font-size: 14px; }
+    footer { margin-top: 55px; border-top: 1px solid var(--line); padding: 23px 0 30px; display: flex; justify-content: space-between; gap: 16px; color: var(--muted); font-size: 11px; }
+    .small-link { color: var(--accent); cursor: pointer; background: none; border: 0; font: inherit; padding: 0; }
+    @media (max-width: 800px) { .hero { grid-template-columns: 1fr; gap: 32px; padding: 60px 0 45px; } .hero-card { max-width: 560px; } .grid { grid-template-columns: repeat(2, 1fr); } .skill-layout { grid-template-columns: 1fr; } .section-head { align-items: start; flex-direction: column; } }
+    @media (max-width: 540px) { .wrap { width: min(100% - 28px, 1120px); } .nav { align-items: flex-start; } .nav-links { gap: 12px; flex-wrap: wrap; justify-content: flex-end; font-size: 11px; } .nav-links a:nth-child(2) { display: none; } .brand { font-size: 13px; } .brand-mark { width: 34px; height: 34px; } .hero { padding-top: 46px; } .hero-copy { font-size: 15px; } .grid { grid-template-columns: 1fr; } .contact { padding: 24px; flex-direction: column; align-items: flex-start; } footer { flex-direction: column; } }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <div class="wrap">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="brand" href="#home" aria-label="Shivansh Raj home"><span class="brand-mark">SR</span><span>SHIVANSH RAJ<span class="gradient">.</span></span></a>
+        <div class="nav-links"><a href="#about">About</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a></div>
+      </nav>
+      <main>
+        <header class="hero" id="home">
+          <div>
+            <div class="eyebrow"><span class="pulse"></span> Cybersecurity · Blue Team</div>
+            <h1>Shivansh<br><span class="gradient">Raj.</span></h1>
+            <p class="hero-copy"><strong>BCA graduate and cybersecurity enthusiast</strong> focused on defensive security operations, SOC analysis, incident response, threat investigation, and digital forensics. Building practical skills through hands-on labs and real-world learning.</p>
+            <div class="actions"><a class="btn btn-primary" href="#experience">Explore my experience <span aria-hidden="true">↘</span></a><a class="btn" href="#projects">View lab projects <span aria-hidden="true">⌘</span></a></div>
+          </div>
+          <aside class="hero-card" aria-label="Cybersecurity focus terminal card">
+            <div class="terminal-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="terminal-label">analyst_profile.sh</span></div>
+            <div class="code-line"><span>$</span> whoami</div><div class="code-line"><b>shivansh_raj</b></div>
+            <div class="code-line"><span>$</span> target_role</div><div class="code-line"><b>SOC Analyst · L1</b></div>
+            <div class="code-line"><span>$</span> focus --list</div><div class="code-line">↳ SIEM monitoring</div><div class="code-line">↳ Alert triage & investigation</div><div class="code-line">↳ Incident response</div><div class="code-line">↳ Digital forensics</div>
+            <div class="status"><strong>Current learning experience</strong>Chandigarh Police · Cyber Cell Internship</div>
+          </aside>
+        </header>
+
+        <section id="about">
+          <div class="section-head"><div><div class="section-kicker">01 / About me</div><h2>Curious mindset. Analyst approach.</h2></div><p class="section-intro">I’m working toward an entry-level defensive cybersecurity role where I can help detect, investigate, document, and escalate security events.</p></div>
+          <div class="grid">
+            <article class="card"><div class="card-icon">⌕</div><h3>Investigate with purpose</h3><p>Interested in understanding alerts, reviewing evidence, identifying indicators of compromise, and building a clear incident timeline.</p></article>
+            <article class="card"><div class="card-icon">◈</div><h3>Blue-team operations</h3><p>Developing SOC-oriented skills across log analysis, SIEM workflows, alert triage, network analysis, and incident documentation.</p></article>
+            <article class="card"><div class="card-icon">⌘</div><h3>Learn by doing</h3><p>Using hands-on cybersecurity labs and structured practice to turn core concepts into repeatable investigation workflows.</p></article>
+          </div>
+        </section>
+
+        <section id="experience">
+          <div class="section-head"><div><div class="section-kicker">02 / Experience</div><h2>Learning in a cybercrime environment.</h2></div></div>
+          <div class="timeline">
+            <article class="timeline-item">
+              <div class="timeline-meta"><span class="tag current">CURRENT INTERNSHIP</span><span class="tag">Cybersecurity</span></div>
+              <h3>Chandigarh Police — Cyber Cell</h3>
+              <p><strong>Cybersecurity Intern</strong> · October 2026 – Present</p>
+              <p style="margin-top:8px">Currently undertaking a Cyber Cell internship with Chandigarh Police, with exposure to the cybercrime and digital investigation environment. Building practical understanding of investigative workflows, evidence awareness, and cybersecurity practices. This internship is ongoing; responsibilities and outcomes will be updated as the experience progresses.</p>
+            </article>
+            <article class="timeline-item">
+              <div class="timeline-meta"><span class="tag">EDUCATION</span></div>
+              <h3>Bachelor of Computer Applications (BCA)</h3>
+              <p>Chandigarh Group of Colleges (CGC), Landran, Mohali</p>
+            </article>
+            <article class="timeline-item">
+              <div class="timeline-meta"><span class="tag">PRACTICAL LEARNING</span></div>
+              <h3>Cybersecurity labs & guided simulations</h3>
+              <p>Practice across TryHackMe and Hack The Box-style learning environments, focusing on investigation thinking, security fundamentals, and hands-on problem solving. Lab exposure is presented separately from professional employment.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="skills">
+          <div class="section-head"><div><div class="section-kicker">03 / Skills & toolkit</div><h2>My developing toolkit.</h2></div><p class="section-intro">A practical, SOC-oriented learning stack. Proficiency grows through lab work and continued practice.</p></div>
+          <div class="skill-layout">
+            <div class="skill-panel"><h3>Security focus areas</h3><div class="chips"><span class="chip">SOC monitoring</span><span class="chip">Alert triage</span><span class="chip">Threat investigation</span><span class="chip">Incident response</span><span class="chip">IOC investigation</span><span class="chip">Log analysis</span><span class="chip">Network traffic analysis</span><span class="chip">Digital forensics fundamentals</span><span class="chip">Incident documentation</span></div></div>
+            <div class="skill-panel"><h3>Tools & technologies explored</h3><div class="chips"><span class="chip">Splunk</span><span class="chip">Microsoft Sentinel</span><span class="chip">Wireshark</span><span class="chip">Nmap</span><span class="chip">Sysmon</span><span class="chip">Windows Event Logs</span><span class="chip">Linux logs</span><span class="chip">VirusTotal</span><span class="chip">URLScan.io</span><span class="chip">AbuseIPDB</span><span class="chip">Wazuh</span><span class="chip">SPL / KQL fundamentals</span></div><p class="note">Tools listed reflect learning and exposure; hands-on depth varies by tool.</p></div>
+          </div>
+          <div class="skill-panel" style="margin-top:16px"><h3>Frameworks & investigation models studied</h3><div class="chips"><span class="chip">MITRE ATT&CK</span><span class="chip">NIST CSF 2.0</span><span class="chip">NIST SP 800-61</span><span class="chip">Cyber Kill Chain</span><span class="chip">Diamond Model</span><span class="chip">Pyramid of Pain</span><span class="chip">CIS Controls</span></div></div>
+        </section>
+
+        <section id="projects">
+          <div class="section-head"><div><div class="section-kicker">04 / Hands-on portfolio</div><h2>Labs built around investigation.</h2></div><p class="section-intro">These are portfolio lab directions and practical learning projects—not claims of production SOC employment.</p></div>
+          <div class="grid">
+            <article class="card project"><div class="project-top"><span class="project-symbol">01 / SIEM</span><span class="tag">Home lab</span></div><h3>Multi-endpoint SOC lab</h3><p>Design a controlled lab with a Splunk SIEM, Windows logs and Sysmon, Linux authentication/syslog data, and an isolated test endpoint to practice collection, correlation, and alert investigation.</p><div class="chips"><span class="chip">Splunk</span><span class="chip">Sysmon</span><span class="chip">Log analysis</span></div></article>
+            <article class="card project"><div class="project-top"><span class="project-symbol">02 / CASE</span><span class="tag">Casebook</span></div><h3>SOC investigation casebook</h3><p>Document sample alerts with triage notes, evidence reviewed, relevant IOCs, investigation timelines, severity rationale, and escalation recommendations.</p><div class="chips"><span class="chip">Triage</span><span class="chip">IOC analysis</span><span class="chip">Reporting</span></div></article>
+            <article class="card project"><div class="project-top"><span class="project-symbol">03 / DETECT</span><span class="tag">Detection practice</span></div><h3>Detection & response playbooks</h3><p>Build repeatable playbooks for suspicious sign-ins, endpoint alerts, and network indicators, including initial checks, evidence preservation, and next-step guidance.</p><div class="chips"><span class="chip">MITRE ATT&CK</span><span class="chip">Response</span><span class="chip">Playbooks</span></div></article>
+          </div>
+        </section>
+
+        <section id="certifications">
+          <div class="section-head"><div><div class="section-kicker">05 / Learning credentials</div><h2>Courses & certifications.</h2></div></div>
+          <div class="skill-panel"><div class="chips"><span class="chip">OPSWAT Cybersecurity Fundamental Associate</span><span class="chip">Fortinet Certified Fundamentals</span><span class="chip">CENTRI — Introduction to PowerShell</span><span class="chip">Microsoft — Introduction to Zero Trust Framework badge</span><span class="chip">OpenLearn — Cyber Incident</span></div><p class="note">Please verify exact credential titles and add credential links or issue dates before publishing.</p></div>
+        </section>
+
+        <section id="contact">
+          <div class="contact"><div><div class="section-kicker">06 / Contact</div><h2>Let’s connect on cybersecurity.</h2><p>I’m interested in entry-level SOC Analyst L1 / Cyber Security Analyst opportunities focused on defensive operations, alert investigation, and incident response.</p></div><a class="btn btn-primary" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">Connect on LinkedIn ↗</a></div>
+          <p class="note">Before publishing, replace the general LinkedIn link with your exact profile URL and add your preferred professional email and GitHub profile.</p>
+        </section>
+      </main>
+      <footer><span>© <span id="year">2026</span> Shivansh Raj · Cybersecurity Portfolio</span><span>Built around curiosity, evidence, and continuous learning.</span><button class="small-link" id="topButton" type="button">Back to top ↑</button></footer>
+    </div>
+  </div>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('topButton').addEventListener('click', function () {
+      document.getElementById('home').scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+    });
+  </script>
+</body>
+</html>
